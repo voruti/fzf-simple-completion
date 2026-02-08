@@ -10,7 +10,7 @@ _fzf_command_completion() {
     COMPREPLY=$(
         # Use compgen for commands completion
         compgen -c -- "${COMP_WORDS[COMP_CWORD]}" 2>/dev/null | LC_ALL=C sort -u |
-        fzf --reverse --height 12 --select-1 --exit-0
+        fzf --bind=tab:down --bind=btab:up --cycle --reverse --height 12 --select-1 --exit-0
     )
     printf '\e[5n'
 }
